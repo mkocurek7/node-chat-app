@@ -3,10 +3,9 @@ pipeline
     agent any
     stages
     {
-         stage('Build') {
-            steps {
-                
-            }
+       stage('Build') {
+           steps{ echo 'Building...' } 
+           
        post{
         success{
             emailtext attachLog: true,
