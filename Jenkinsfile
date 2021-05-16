@@ -9,6 +9,15 @@ pipeline
       
        stage('Build') {
            steps{ echo 'Building...' } 
+           post{
+               always{ 
+                emailtext: true,
+                   body: "build"
+                    recipientProviders: [developers(), requestor()],
+                    subject: "Success Jenkins ",
+                     to: 'kocurekmagdalena7@gmail.com'  
+               }
+           }
         }
         stage('Test')
         {
