@@ -10,14 +10,13 @@ pipeline
        stage('Build') {
            steps{ echo 'Building...' } 
            post{
-               always{ 
-                emailext: 
-                   body: "build",
-                    recipientProviders: [developers(), requestor()],
-                    subject: "Success Jenkins ",
-                     to: 'kocurekmagdalena7@gmail.com'  
+              // always{ 
+                    mail to: 'kocurekmagdalena7@gmail.com', from: 'jenkins@example.com',
+                   subject: "Example ", 
+             //   emailext: 
+                    recipientProviders: [developers(), requestor()]
                }
-           }
+          // }
         }
         stage('Test')
         {
