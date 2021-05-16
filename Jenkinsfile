@@ -12,7 +12,8 @@ pipeline
            post{
                 success{
               // always{ 
-                    mail to: 'kocurekmagdalena7@gmail.com', from: 'jenkins@example.com',
+                    emailext to: 'kocurekmagdalena7@gmail.com',
+                    from: 'jenkins@example.com',
                    subject: "Example ",
                    body: "Job succesed"
              //   emailext: 
