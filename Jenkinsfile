@@ -13,7 +13,8 @@ pipeline
                 success{
               // always{ 
                     mail to: 'kocurekmagdalena7@gmail.com', from: 'jenkins@example.com',
-                   subject: "Example "
+                   subject: "Example ",
+                   body: "Job succesed"
              //   emailext: 
                    // recipientProviders: [developers(), requestor()]
                }
