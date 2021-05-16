@@ -11,8 +11,8 @@ pipeline
            steps{ echo 'Building...' } 
            post{
                always{ 
-                emailtext: true,
-                   body: "build"
+                emailtext: 
+                   body: "build",
                     recipientProviders: [developers(), requestor()],
                     subject: "Success Jenkins ",
                      to: 'kocurekmagdalena7@gmail.com'  
