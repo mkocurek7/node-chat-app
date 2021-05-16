@@ -10,11 +10,11 @@ pipeline
        stage('Build') {
            steps{ echo 'Building...' } 
            post{
-                success{
-              // always{ 
+              //  success{
+               always{ 
                    // emailext to: 'embeddedinit0@gmail.com',
                     emailext to: 'kocurekmagdalena7@gmail.com',
-                    from: 'jenkins@example.com',
+                   // from: 'jenkins@example.com',
                    subject: "Example ",
                    body: "Job succesed",
              //   emailext: 
