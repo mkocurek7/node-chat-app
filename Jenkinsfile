@@ -15,9 +15,9 @@ pipeline
                     emailext to: 'kocurekmagdalena7@gmail.com',
                     from: 'jenkins@example.com',
                    subject: "Example ",
-                   body: "Job succesed"
+                   body: "Job succesed",
              //   emailext: 
-                   // recipientProviders: [developers(), requestor()]
+                  recipientProviders: [developers(), requestor()]
                }
            }
         }
