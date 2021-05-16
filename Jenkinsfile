@@ -3,6 +3,10 @@ pipeline
     agent any
     stages
     {
+         stage('Declarative: Tool Install') {
+           steps{ echo 'here should be tools.' } 
+        }
+      
        stage('Build') {
            steps{ echo 'Building...' } 
         }
