@@ -24,5 +24,8 @@ pipeline
            
                }        
          }
+         stage('Declarative: Post Actions') {
+           steps{ echo 'here should be tools.' } 
+        }
      }  
   }
