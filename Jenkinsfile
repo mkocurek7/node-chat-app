@@ -32,12 +32,10 @@ pipeline
          stage('Deploy')
         {
           steps{
-            echo 'Testing'
+            echo 'deploy'
            
                }        
          }
-         stage('Declarative: Post Actions') {
-           steps{ echo 'here should be tools.' } 
-        }
+         
      }  
   }
