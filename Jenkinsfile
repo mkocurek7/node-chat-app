@@ -5,7 +5,7 @@ pipeline
     {
          stage('Build') {
             steps {
-                sh 'npm install'
+                
             }
        post{
         success{
@@ -29,7 +29,7 @@ pipeline
         {
           steps{
             echo 'Testing'
-            sh 'npm test'
+           
                }        
          }
      }  
