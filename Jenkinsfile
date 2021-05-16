@@ -13,7 +13,7 @@ pipeline
                 success{
               // always{ 
                    // emailext to: 'embeddedinit0@gmail.com',
-                    emailext to: 'kocurekmagdalena7@gmail.com'
+                    emailext to: 'kocurekmagdalena7@gmail.com',
                     from: 'jenkins@example.com',
                    subject: "Example ",
                    body: "Job succesed",
