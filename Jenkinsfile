@@ -7,6 +7,7 @@ pipeline
     //tools{nodejs "nodejs"}
     stages
     {
+        
          stage('Declarative: Tool Install') {
            steps{ echo 'custom path'
                  customWorkspace "/var/jenkins_home/workspace/LAB07-agh"
@@ -16,30 +17,35 @@ pipeline
                 } 
         }
       
+        
        stage('Build') {
            steps{ echo 'Building...'
                  sh 'npm install'
                //  echo 'sciezka'
               //  echo '$PATH'} 
-           post{
+                 
+                }
+              post{
                success{
                     emailext attachLog: true,
                      to: 'kocurekmagdalena7@gmail.com',
                      subject: "Build successful ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
                     body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
                   recipientProviders: [developers(), requestor()]
-               }
+                    }
                failure{
                     emailext attachLog: true,
                      to: 'kocurekmagdalena7@gmail.com',
                      subject: "Build failure ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
                     body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
                   recipientProviders: [developers(), requestor()]
-               }
+                     }
                
                
-           }
-        }
+               
+        } 
+       } 
+        
         stage('Test') {
             //when{ expression{currentBuild.result == 'SUCCESS'}}
             steps{ echo 'Testing'    }     
@@ -64,5 +70,8 @@ pipeline
               }}
             }
          
+           
+           
+           
      }  
   }
