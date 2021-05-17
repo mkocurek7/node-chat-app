@@ -4,7 +4,7 @@ pipeline
     // node {
        //  customWorkspace "/var/jenkins_home/workspace/LAB07-agh"
       // }}
-    tools{nodejs "NodeJS"}
+    tools{nodejs "node"}
     // tools{nodejs "nodejs"}
     stages
     {
