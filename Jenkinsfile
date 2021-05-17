@@ -1,15 +1,22 @@
 pipeline
 {
-    agent{
-     node {
-         customWorkspace "/var/jenkins_home/workspace/LAB07-agh"
-       }}
+    agent any
+    // node {
+       //  customWorkspace "/var/jenkins_home/workspace/LAB07-agh"
+      // }}
     //tools{nodejs "nodejs"}
     stages
     {
         
          stage('Declarative: Tool Install') {
            steps{ echo 'custom path'
+                 agent{
+                     node{   label 'label'
+                            customWorkspace '/var/jenkins_home/workspace/LAB07-agh'
+                         }
+                     
+                      echo pwd()
+                    }
                 // customWorkspace "/var/jenkins_home/workspace/LAB07-agh"
                  //echo "WS: ${pwd()}, EXISTS: ${new File(pwd()).exists()}"
                  //echo "WS_TMP: ${pwd(tmp:
