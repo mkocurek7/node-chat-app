@@ -50,7 +50,7 @@ pipeline
             }
          stage('Deploy') {
              steps{echo 'deploy'
-                  sh 'docker build -t chat-deploy -f Dockerfile-deploy .'}  
+                  sh ' sudo docker build -t chat-deploy -f Dockerfile-deploy .'}  
                post{
                  success{
                  emailext attachLog: true,
