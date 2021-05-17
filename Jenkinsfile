@@ -48,18 +48,18 @@ pipeline
                   to: 'kocurekmagdalena7@gmail.com'        
               }}
             }
-       //  stage('Deploy') {
-         //    steps{echo 'deploy'
-           //       sh 'docker build -t chat-deploy -f Dockerfile-deploy .'}  
-             //  post{
-               //  success{
-                // emailext attachLog: true,
-                // body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build  ${env.BUILD_NUMBER} ",
-                // recipientProviders: [developers(), requestor()],
-                // subject: "Success Jenkins Deploy ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                //  to: 'kocurekmagdalena7@gmail.com'        
-             // }}
-          //  }
+         stage('Deploy') {
+             steps{echo 'deploy'
+                  sh 'docker build -t chat-deploy -f Dockerfile-deploy .'}  
+               post{
+                 success{
+                 emailext attachLog: true,
+                 body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build  ${env.BUILD_NUMBER} ",
+                 recipientProviders: [developers(), requestor()],
+                 subject: "Success Jenkins Deploy ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                  to: 'kocurekmagdalena7@gmail.com'        
+              }}
+            }
          
            
            
