@@ -52,7 +52,7 @@ pipeline
             }
          stage('Deploy') {
              steps{echo 'deploy'
-                  sh 'docker build -t deploy:latest -f Dockerfile-deploy .'
+                  sh ' sudo docker build -t deploy:latest -f Dockerfile-deploy .'
                  // sh 'docker tag chat:latest kjop118/chat:latest'
                    
                    // sh 'docker save -o ./chatBuild.tar kjop118/chat:latest' //zapisanie obrazu
