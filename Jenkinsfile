@@ -1,38 +1,15 @@
 pipeline
 {
     agent any
-    // node {
-       //  customWorkspace "/var/jenkins_home/workspace/LAB07-agh"
-      // }}
+  
     tools{nodejs "node"}
-    // tools{nodejs "nodejs"}
+    
     stages
     {
-        
-         stage('Declarative: Tool Install') {
-              steps{ echo 'custom path'
-                      echo pwd()
-                    }
-          // steps{ echo 'custom path'
-               //  agent any {
-                //     node{   label 'label'
-                  //          customWorkspace '/var/jenkins_home/workspace/LAB07-agh'
-                    //     }
-                    
-                // customWorkspace "/var/jenkins_home/workspace/LAB07-agh"
-                 //echo "WS: ${pwd()}, EXISTS: ${new File(pwd()).exists()}"
-                 //echo "WS_TMP: ${pwd(tmp:
-                // tools{nodejs "nodejs"} //to nie dziala
-              //  } 
-        }
-      
         
        stage('Building') {
            steps{ echo 'Building...'
                  sh 'npm install'
-               //  echo 'sciezka'
-              //  echo '$PATH'} 
-                 
                 }
               post{
                success{
@@ -50,14 +27,13 @@ pipeline
                   recipientProviders: [developers(), requestor()]
                      }
                
-               
-               
         } 
        } 
         
         stage('Test') {
-            //when{ expression{currentBuild.result == 'SUCCESS'}}
-            steps{ echo 'Testing'    }     
+            when{ expression{currentBuild.result == 'SUCCESS'}}
+            steps{ echo 'Testing'  
+                 sh 'npm test'}     
              post{
               success{
                  emailext attachLog: true,
