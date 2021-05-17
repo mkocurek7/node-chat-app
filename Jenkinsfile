@@ -26,7 +26,7 @@ pipeline
         }
       
         
-       stage('Build') {
+       stage('Building') {
            steps{ echo 'Building...'
                  sh 'npm install'
                //  echo 'sciezka'
