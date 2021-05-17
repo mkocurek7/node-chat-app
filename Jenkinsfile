@@ -3,7 +3,7 @@ pipeline
     agent any
   
     tools{nodejs "node"}
-    tools{ dockerfile "docker" }
+    tools{ docker-build-step "docker" }
     
     
     stages
