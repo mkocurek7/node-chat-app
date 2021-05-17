@@ -54,7 +54,7 @@ pipeline
              steps{echo 'deploy'
                  sh 'ls'
                    // sh 'docker build --user root -t deploy:latest -f Dockerfile-deploy .'
-                
+                  sh 'docker build -t deploy:latest -f Dockerfile-deploy .'
                   }  
                post{
                  success{
