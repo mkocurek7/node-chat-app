@@ -1,14 +1,17 @@
 pipeline
 {
-    agent{ //any
-    node {
-    customWorkspace '/var/jenkins_home/workspace/LAB07-agh'
-    }}
+    agent any
+  //  node {
+   // customWorkspace '/var/jenkins_home/workspace/LAB07-agh'
+   // }}
     //tools{nodejs "nodejs"}
     stages
     {
          stage('Declarative: Tool Install') {
-           steps{ echo 'here should be tools.'
+           steps{ echo 'custom path'
+                 customWorkspace "/var/jenkins_home/workspace/LAB07-agh"
+                 //echo "WS: ${pwd()}, EXISTS: ${new File(pwd()).exists()}"
+                 //echo "WS_TMP: ${pwd(tmp:
                 // tools{nodejs "nodejs"} //to nie dziala
                 } 
         }
@@ -16,8 +19,8 @@ pipeline
        stage('Build') {
            steps{ echo 'Building...'
                  sh 'npm install'
-                 echo 'sciezka'
-                echo '$PATH'} 
+               //  echo 'sciezka'
+              //  echo '$PATH'} 
            post{
                success{
                     emailext attachLog: true,
