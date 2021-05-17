@@ -1,7 +1,7 @@
 pipeline
 {
     agent any
-    tools{nodejs "nodejs"}
+    //tools{nodejs "nodejs"}
     stages
     {
          stage('Declarative: Tool Install') {
@@ -12,6 +12,7 @@ pipeline
       
        stage('Build') {
            steps{ echo 'Building...'
+                 sh 'npm install'
                  echo 'sciezka'
                 echo '$PATH'} 
            post{
