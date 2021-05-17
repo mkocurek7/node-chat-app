@@ -31,7 +31,7 @@ pipeline
        } 
         
         stage('Test') {
-            when{ expression{currentBuild.result == 'SUCCESS'}}
+            when{ expression{currentBuild.result == 'SUCCESS' || currentBuild.result == null }}
             steps{ echo 'Testing'  
                  sh 'npm test'}     
              post{
