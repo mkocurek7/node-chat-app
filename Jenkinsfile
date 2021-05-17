@@ -3,8 +3,6 @@ pipeline
     agent any
   
     tools{nodejs "node"}
-   // tools{ docker-build-step } //"docker"}
-    
     
     stages
     {
@@ -15,7 +13,6 @@ pipeline
                 // checkout scm
                  
                  sh 'npm install'
-             //    sh 'npm run build'
                  
                 }
               post{
@@ -52,10 +49,6 @@ pipeline
             }
          stage('Deploy') {
              steps{echo 'deploy'
-                 sh 'ls'
-                   echo "spr czy sa contenery "
-                   sh 'docker ps'
-                   // sh 'docker build --user root -t deploy:latest -f Dockerfile-deploy .'
                   sh 'docker build -t deploy -f Dockerfile-deploy .'
                   }  
                post{
@@ -66,10 +59,7 @@ pipeline
                  subject: "Success Jenkins Deploy ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
                   to: 'kocurekmagdalena7@gmail.com'        
               }}
-            }
-         
-           
-           
+            } 
            
      }  
   }
