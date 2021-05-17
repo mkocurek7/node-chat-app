@@ -1,12 +1,12 @@
 pipeline
 {
     agent any
-    
+    tools{nodejs "nodejs"}
     stages
     {
          stage('Declarative: Tool Install') {
            steps{ echo 'here should be tools.'
-                 tools{nodejs "nodejs"}
+                // tools{nodejs "nodejs"} //to nie dziala
                 } 
         }
       
