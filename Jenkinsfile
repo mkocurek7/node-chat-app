@@ -13,16 +13,16 @@ pipeline
                       echo pwd()
                     }
           // steps{ echo 'custom path'
-                 agent any {
-                     node{   label 'label'
-                            customWorkspace '/var/jenkins_home/workspace/LAB07-agh'
-                         }
+               //  agent any {
+                //     node{   label 'label'
+                  //          customWorkspace '/var/jenkins_home/workspace/LAB07-agh'
+                    //     }
                     
                 // customWorkspace "/var/jenkins_home/workspace/LAB07-agh"
                  //echo "WS: ${pwd()}, EXISTS: ${new File(pwd()).exists()}"
                  //echo "WS_TMP: ${pwd(tmp:
                 // tools{nodejs "nodejs"} //to nie dziala
-                } 
+              //  } 
         }
       
         
