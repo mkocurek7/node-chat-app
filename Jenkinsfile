@@ -1,10 +1,13 @@
 pipeline
 {
     agent any
+    
     stages
     {
          stage('Declarative: Tool Install') {
-           steps{ echo 'here should be tools.' } 
+           steps{ echo 'here should be tools.'
+                 tools{nodejs "nodejs"}
+                } 
         }
       
        stage('Build') {
@@ -19,6 +22,15 @@ pipeline
                     body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
                   recipientProviders: [developers(), requestor()]
                }
+               failure{
+                    emailext attachLog: true,
+                     to: 'kocurekmagdalena7@gmail.com',
+                     subject: "Build failure ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                    body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                  recipientProviders: [developers(), requestor()]
+               }
+               
+               
            }
         }
         stage('Test') {
@@ -40,7 +52,7 @@ pipeline
                  emailext attachLog: true,
                  body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ",
                  recipientProviders: [developers(), requestor()],
-                 subject: "Success Jenkins Test ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                 subject: "Success Jenkins Deploy ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
                   to: 'kocurekmagdalena7@gmail.com'        
               }}
             }
