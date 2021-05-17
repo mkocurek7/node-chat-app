@@ -52,11 +52,9 @@ pipeline
             }
          stage('Deploy') {
              steps{echo 'deploy'
-                  sh 'docker build --user root -t deploy:latest -f Dockerfile-deploy .'
-                 // sh 'docker tag chat:latest kjop118/chat:latest'
-                   
-                   // sh 'docker save -o ./chatBuild.tar kjop118/chat:latest' //zapisanie obrazu
-                    //sh 'docker build -t ubuntu-deploy -f Dockerfile_ubuntu .' 
+                 sh 'ls'
+                   // sh 'docker build --user root -t deploy:latest -f Dockerfile-deploy .'
+                
                   }  
                post{
                  success{
