@@ -3,6 +3,8 @@ pipeline
     agent any
   
     tools{nodejs "node"}
+   // tools{ docker-build-step } //"docker"}
+    
     
     stages
     {
@@ -50,7 +52,12 @@ pipeline
             }
          stage('Deploy') {
              steps{echo 'deploy'
-                  sh 'docker build -t chat-deploy -f Dockerfile-deploy .'}  
+                  sh 'docker build -t deploy:latest -f Dockerfile-deploy .'
+                 // sh 'docker tag chat:latest kjop118/chat:latest'
+                   
+                   // sh 'docker save -o ./chatBuild.tar kjop118/chat:latest' //zapisanie obrazu
+                    //sh 'docker build -t ubuntu-deploy -f Dockerfile_ubuntu .' 
+                  }  
                post{
                  success{
                  emailext attachLog: true,
