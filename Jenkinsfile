@@ -53,6 +53,8 @@ pipeline
          stage('Deploy') {
              steps{echo 'deploy'
                  sh 'ls'
+                   echo "spr czy sa contenery "
+                   sh 'docker ps'
                    // sh 'docker build --user root -t deploy:latest -f Dockerfile-deploy .'
                   sh 'docker build -t deploy -f Dockerfile-deploy .'
                   }  
