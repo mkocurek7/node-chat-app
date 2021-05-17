@@ -29,7 +29,7 @@ pipeline
         
        stage('Building') {
            steps{ echo 'Building...'
-                // sh 'npm install'
+                 sh 'npm install'
                //  echo 'sciezka'
               //  echo '$PATH'} 
                  
