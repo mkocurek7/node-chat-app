@@ -4,7 +4,8 @@ pipeline
     // node {
        //  customWorkspace "/var/jenkins_home/workspace/LAB07-agh"
       // }}
-    //tools{nodejs "nodejs"}
+    tools{nodejs "nodejs"}
+    // tools{nodejs "nodejs"}
     stages
     {
         
@@ -28,7 +29,7 @@ pipeline
         
        stage('Building') {
            steps{ echo 'Building...'
-                 sh 'npm install'
+                // sh 'npm install'
                //  echo 'sciezka'
               //  echo '$PATH'} 
                  
