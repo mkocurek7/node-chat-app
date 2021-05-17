@@ -1,6 +1,9 @@
 pipeline
 {
     agent any
+    node {
+    customWorkspace '/var/jenkins_home/workspace/LAB07-agh'
+    }
     //tools{nodejs "nodejs"}
     stages
     {
