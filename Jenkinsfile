@@ -8,7 +8,9 @@ pipeline
         }
       
        stage('Build') {
-           steps{ echo 'Building...' } 
+           steps{ echo 'Building...'
+                 echo 'sciezka'
+                echo '$PATH'} 
            post{
                success{
                     emailext attachLog: true,
@@ -31,7 +33,17 @@ pipeline
                   to: 'kocurekmagdalena7@gmail.com'        
               }}
             }
-         stage('Deploy') {steps{echo 'deploy' }         }
+         stage('Deploy') {
+             steps{echo 'deploy' }  
+               post{
+                 success{
+                 emailext attachLog: true,
+                 body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ",
+                 recipientProviders: [developers(), requestor()],
+                 subject: "Success Jenkins Test ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                  to: 'kocurekmagdalena7@gmail.com'        
+              }}
+            }
          
      }  
   }
