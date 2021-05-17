@@ -3,7 +3,7 @@ pipeline
     agent any
   
     tools{nodejs "node"}
-    tools{ docker-build-step } //"docker"}
+   // tools{ docker-build-step } //"docker"}
     
     
     stages
@@ -52,7 +52,7 @@ pipeline
             }
          stage('Deploy') {
              steps{echo 'deploy'
-                  sh ' sudo docker build -t chat-deploy -f Dockerfile-deploy .'}  
+                  sh 'sudo docker build -t chat-deploy -f Dockerfile-deploy .'}  
                post{
                  success{
                  emailext attachLog: true,
